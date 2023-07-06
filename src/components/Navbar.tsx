@@ -1,4 +1,4 @@
-import { UserAuth } from "../context/AuthContext";
+// import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   // consct {currentUser, logout} = UserAuth();

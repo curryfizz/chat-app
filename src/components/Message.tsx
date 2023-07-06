@@ -8,7 +8,7 @@ const Message = ({ message }: any) => {
       <div className="chat chat-start">
         <div className="chat-image avatar">
           <div className="w-10 rounded-full">
-            {/* <img src={generator.generateRandomAvatar()} /> */}
+            <img src={generator.generateRandomAvatar()} />
           </div>
         </div>
         <div className="chat-header">{message.name}</div>
