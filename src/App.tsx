@@ -1,9 +1,21 @@
+import Login from "./pages/Login"
+import Navbar from "./components/Navbar"
+import Chatroom from "./pages/Chatroom"
+import {Routes, Route} from "react-router-dom"
+import  {PrivateRoute} from "./routes/PrivateRoute"
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-      <button className="btn btn-secondary">Button</button>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Login />}/>
+        <Route path="/chat" element={
+          <PrivateRoute>
+            <Chatroom />
+          </PrivateRoute>
+        }/>
 
-    </h1>
+      </Routes>
+    </div>
   )
 }
