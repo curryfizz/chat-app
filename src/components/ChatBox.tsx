@@ -20,14 +20,17 @@ const ChatBox = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({behavior:"smooth"});
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(scrollToBottom,[messages]);
-  
+  useEffect(scrollToBottom, [messages]);
 
   useEffect(() => {
-    const q = query(collection(db, "messages"), orderBy("createdAt"), limit(50));
+    const q = query(
+      collection(db, "messages"),
+      orderBy("createdAt"),
+      limit(50)
+    );
     const unsubscribe: Unsubscribe = onSnapshot(q, (querySnapshot) => {
       const messages: Message[] = [];
       querySnapshot.forEach((doc) => {
@@ -37,7 +40,7 @@ const ChatBox = () => {
       console.log(messages);
     });
 
-    return () => unsubscribe;
+    return unsubscribe;
   }, []);
 
   return (
